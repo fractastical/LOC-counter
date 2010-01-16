@@ -1,5 +1,5 @@
 def loc()
-	f = File.popen("find . -iregex '^.*\\.[hm]$' | xargs cat | wc -l")
+	f = File.popen("find . -iregex '^.*\\.[hm]$' -print0 | xargs -0 cat | wc -l")
 	res = f.lines.to_a[0].to_i
 	f.close()
 	res
